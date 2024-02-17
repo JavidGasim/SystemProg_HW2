@@ -1,0 +1,77 @@
+﻿<Window x:Class="SystemProg_HW2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemProg_HW2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Label Content="FROM" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       FontSize="25"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <TextBox Name="from_txtbox" HorizontalContentAlignment="Left"
+                         VerticalContentAlignment="Center"  Width="450" Height="50" TextChanged="from_txtbox_TextChanged" BorderThickness="2"/>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Button Name="from_btn" Click="from_btn_Click" Content="FILE" FontSize="25" Height="50" Width="120" BorderThickness="2"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Label Content="TO" VerticalAlignment="Center" HorizontalAlignment="Center"
+               FontSize="25"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <TextBox Name="to_txtbox" HorizontalContentAlignment="Left"
+                         VerticalContentAlignment="Center" TextChanged="to_txtbox_TextChanged" Width="450" Height="50" BorderThickness="2"/>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Button Name="to_btn" Click="to_btn_Click" Content="FILE" FontSize="25" Height="50" Width="120" BorderThickness="2"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <ProgressBar Name="pb" Height="50" Margin="28,47,15,48"
+                             Minimum="0" Maximum="{Binding MaxValue,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                             Value="{Binding FileValue,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Button Name="copy_btn" Click="copy_btn_Click" Content="COPY" FontSize="25" Height="50" Width="120" BorderThickness="2"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
